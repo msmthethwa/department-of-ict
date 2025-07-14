@@ -13,6 +13,7 @@ const firebaseConfig = {
 window.firebase = firebase.initializeApp(firebaseConfig);
 window.auth = window.firebase.auth();
 window.db = window.firebase.firestore();
+window.firebaseNamespace = firebase;  // Added to expose firebase SDK namespace
 
 // ImgBB API key
 const IMGBB_API_KEY = '98ec981bb43b49caeafb99bf3f82d5e7';

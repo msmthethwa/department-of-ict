@@ -1,4 +1,19 @@
 (function() {
+    // Helper function to safely get FieldValue
+    function getFieldValue() {
+        if (window.firebaseNamespace && window.firebaseNamespace.firestore && window.firebaseNamespace.firestore.FieldValue) {
+            return window.firebaseNamespace.firestore.FieldValue;
+        } else if (window.firebase && window.firebase.firestore && window.firebase.firestore.FieldValue) {
+            return window.firebase.firestore.FieldValue;
+        } else {
+            console.warn('Firebase FieldValue is not available. Using fallback no-op implementation.');
+            return {
+                serverTimestamp: () => null,
+                increment: (n) => n
+            };
+        }
+    }
+
     // Global variables
     let staffDataTable = null;
     let departmentsDataTable = null;
@@ -500,7 +515,7 @@
                 researchgate: document.getElementById('staffResearchgate').value,
                 googleScholar: document.getElementById('staffGoogleScholar').value
             },
-            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            updatedAt: getFieldValue().serverTimestamp()
         };
 
         const staffType = document.getElementById('staffType').value;
@@ -529,11 +544,11 @@
                                 const batch = db.batch();
                                 if (oldDepartmentId) {
                                     const oldDeptRef = db.collection('departments').doc(oldDepartmentId);
-                                    batch.update(oldDeptRef, { staffCount: firebase.firestore.FieldValue.increment(-1) });
+                                batch.update(oldDeptRef, { staffCount: getFieldValue().increment(-1) });
                                 }
                                 if (newDepartmentId) {
                                     const newDeptRef = db.collection('departments').doc(newDepartmentId);
-                                    batch.update(newDeptRef, { staffCount: firebase.firestore.FieldValue.increment(1) });
+                                    batch.update(newDeptRef, { staffCount: getFieldValue().increment(1) });
                                 }
                                 batch.commit().then(() => {
                                     if (staffModal) staffModal.hide();
@@ -556,13 +571,13 @@
                 }
             });
         } else {
-            staffData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+            staffData.createdAt = getFieldValue().serverTimestamp();
             
             db.collection('staff').add(staffData)
                 .then(docRef => {
                     if (staffData.department) {
                         const deptRef = db.collection('departments').doc(staffData.department);
-                        deptRef.update({ staffCount: firebase.firestore.FieldValue.increment(1) });
+                        deptRef.update({ staffCount: getFieldValue().increment(1) });
                     }
                     if (staffModal) staffModal.hide();
                     loadStaffData();
@@ -586,7 +601,7 @@
         const departmentData = {
             name: document.getElementById('departmentName').value,
             description: document.getElementById('departmentDescription').value,
-            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            updatedAt: getFieldValue().serverTimestamp()
         };
         
         const headId = document.getElementById('departmentHead').value;
@@ -671,7 +686,7 @@
                     showToast('Error updating department', 'danger');
                 });
         } else {
-            departmentData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+            departmentData.createdAt = getFieldValue().serverTimestamp();
             departmentData.staffCount = 0;
             
             db.collection('departments').add(departmentData)
@@ -703,7 +718,7 @@
                                 .then(() => {
                                     if (departmentId) {
                                         const deptRef = db.collection('departments').doc(departmentId);
-                                        deptRef.update({ staffCount: firebase.firestore.FieldValue.increment(-1) });
+                                        deptRef.update({ staffCount: getFieldValue().increment(-1) });
                                     }
                                     loadStaffData();
                                     loadDepartmentsData();
