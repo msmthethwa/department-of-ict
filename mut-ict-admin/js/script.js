@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Toggle between login and register forms
-    toggleRegister.addEventListener('click', function(e) {
+    toggleRegister.addEventListener('dblclick', function(e) {
         e.preventDefault();
         loginPage.style.display = 'none';
         registerFormContainer.style.display = 'block';
