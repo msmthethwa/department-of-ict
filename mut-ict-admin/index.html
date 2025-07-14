@@ -1,0 +1,186 @@
+ <!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | MUT ICT</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Login Page (initially shown) -->
+    <div id="loginPage" class="login-container">
+        <div class="login-logo">
+            <img src="https://i.postimg.cc/nV2wPJNG/Upscale-Image-9-20250709-Photoroom.png" alt="MUT Logo">
+            <h4 class="mt-3">ICT Admin Dashboard</h4>
+        </div>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-mut">Login</button>
+            </div>
+        </form>
+        
+        <div class="text-center mt-3">
+            <a href="#" id="toggleRegister">Register new admin</a>
+        </div>
+    </div>
+
+    <!-- Registration Form (initially hidden) -->
+    <div id="registerFormContainer" class="login-container" style="display: none;">
+        <div class="login-logo">
+            <img src="https://i.postimg.cc/nV2wPJNG/Upscale-Image-9-20250709-Photoroom.png" alt="MUT Logo">
+            <h4 class="mt-3">Register New Admin</h4>
+        </div>
+        <form id="registerForm">
+            <div class="mb-3">
+                <label for="registerName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="registerName" required>
+            </div>
+            <div class="mb-3">
+                <label for="registerEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="registerEmail" required>
+            </div>
+            <div class="mb-3">
+                <label for="registerPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="registerPassword" required minlength="6">
+            </div>
+            <div class="mb-3">
+                <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="registerConfirmPassword" required>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-mut">Register</button>
+                <button type="button" id="cancelRegister" class="btn btn-outline-secondary">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Admin Dashboard (initially hidden) -->
+    <div id="adminDashboard" style="display: none;">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://i.postimg.cc/nV2wPJNG/Upscale-Image-9-20250709-Photoroom.png" alt="MUT Logo" style="max-width: 100%; max-height: 60px; display: block; margin: 0 auto;">
+            </div>
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="index.html"><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#" id="staffSidebarBtn"><i class="fas fa-users me-2"></i> Staff</a>
+                </li>
+                <li>
+                    <a href="#" id="timetableSidebarBtn"><i class="fas fa-calendar-alt me-2"></i> Timetable</a>
+                </li>
+                <li>
+                    <a href="#" id="newsSidebarBtn"><i class="fas fa-newspaper me-2"></i> News</a>
+                </li>
+                <li>
+                    <a href="events.html"><i class="fas fa-calendar-day me-2"></i> Events</a>
+                </li>
+        <li>
+            <a href="#" id="partnershipsSidebarBtn"><i class="fas fa-handshake me-2"></i> Partnerships</a>
+        </li>
+                <li>
+                    <a href="#" id="contactSidebarBtn"><i class="fas fa-envelope me-2"></i> Contact</a>
+                </li>
+                <li>
+                    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navigation -->
+            <nav class="navbar-admin">
+                <div class="d-flex justify-content-between w-100 align-items-center">
+                    <button class="btn btn-outline-mut d-md-none" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h4 class="mb-0" id="pageTitle">Dashboard</h4>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-mut dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> <span id="adminEmailDisplay">admin@mut.ac.za</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="dropdownLogoutBtn"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page-specific content will be loaded here -->
+            <div id="pageContent">
+                <div class="card-admin">
+                    <div class="card-header-admin">
+                        <h5 class="mb-0"><i class="fas fa-tachometer-alt me-2"></i> Dashboard Overview</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <canvas id="lineChart"></canvas>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <canvas id="barChart"></canvas>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <canvas id="pieChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/img-upload.js"></script>
+    <script src="js/staff.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/timetable.js"></script>
+    <script src="js/partnerships.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

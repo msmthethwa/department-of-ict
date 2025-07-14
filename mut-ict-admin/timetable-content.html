@@ -1,0 +1,306 @@
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Manage Timetables</h1>
+    <button class="btn btn-mut" data-bs-toggle="modal" data-bs-target="#addTimetableModal">
+        <i class="fas fa-plus me-2"></i> Add New Timetable
+    </button>
+</div>
+            
+            <!-- Program Filter -->
+<div class="card-admin mb-4">
+    <div class="card-header-admin d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-white">Filter Timetables</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="filterProgram" class="form-label">Program</label>
+                <select class="form-select" id="filterProgram">
+                    <option value="all">All Programs</option>
+                    <option value="ecp">Extended Curriculum</option>
+                    <option value="dip">Diploma in IT</option>
+                    <option value="adv">Advanced Diploma</option>
+                    <option value="pg">Postgraduate</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="filterLevel" class="form-label">Level</label>
+                <select class="form-select" id="filterLevel">
+                    <option value="all">All Levels</option>
+                    <option value="1">Year 1</option>
+                    <option value="2">Year 2</option>
+                    <option value="3">Year 3</option>
+                    <option value="4">Year 4</option>
+                    <option value="honors">Honors</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="filterSemester" class="form-label">Semester</label>
+                <select class="form-select" id="filterSemester">
+                    <option value="all">All Semesters</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            <!-- Timetables Table -->
+            <div class="card-admin mb-4">
+                <div class="card-header-admin d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold text-white">All Timetables</h6>
+                    <button class="btn btn-sm btn-outline-secondary" id="refreshTimetablesBtn">
+                        <i class="fas fa-sync-alt me-1"></i> Refresh
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="timetablesTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Program</th>
+                                    <th>Level</th>
+                                    <th>Semester</th>
+                                    <th>Academic Year</th>
+                                    <th>Last Updated</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="timetablesTableBody">
+                                <!-- Timetables will be loaded here via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Timetable Modal -->
+    <div class="modal fade" id="addTimetableModal" tabindex="-1" aria-labelledby="addTimetableModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addTimetableModalLabel">Create New Timetable</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="addTimetableForm">
+                    <div class="modal-body">
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <label for="timetableProgram" class="form-label">Program</label>
+                                <select class="form-select" id="timetableProgram" required>
+                                    <option value="">Select Program</option>
+                                    <option value="ecp">Extended Curriculum Program (ECP)</option>
+                                    <option value="dip">Diploma in IT</option>
+                                    <option value="adv">Advanced Diploma</option>
+                                    <option value="pg">Postgraduate</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="timetableLevel" class="form-label">Level</label>
+                                <select class="form-select" id="timetableLevel" required>
+                                    <option value="">Select Level</option>
+                                    <option value="1">Year 1</option>
+                                    <option value="2">Year 2</option>
+                                    <option value="3">Year 3</option>
+                                    <option value="4">Year 4</option>
+                                    <option value="honors">Honors</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="timetableSemester" class="form-label">Semester</label>
+                                <select class="form-select" id="timetableSemester" required>
+                                    <option value="">Select Semester</option>
+                                    <option value="1">Semester 1</option>
+                                    <option value="2">Semester 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="timetableYear" class="form-label">Academic Year</label>
+                                <input type="text" class="form-control" id="timetableYear" placeholder="e.g., 2025" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="timetableStatus" class="form-label">Status</label>
+                                <select class="form-select" id="timetableStatus" required>
+                                    <option value="draft">Draft</option>
+                                    <option value="published">Published</option>
+                                    <option value="archived">Archived</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h6 class="mb-0">Timetable Entries</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="timetableEntriesTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th>Monday</th>
+                                                <th>Tuesday</th>
+                                                <th>Wednesday</th>
+                                                <th>Thursday</th>
+                                                <th>Friday</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="timetableEntriesBody">
+                                            <!-- Default rows will be added via JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-secondary mt-2" id="addTimeSlotBtn">
+                                    <i class="fas fa-plus me-1"></i> Add Time Slot
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="timetableNotes" class="form-label">Important Notes</label>
+                            <textarea class="form-control" id="timetableNotes" rows="3" placeholder="Add any important notes for students..."></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="saveTimetableBtn">Save Timetable</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit Timetable Modal -->
+    <div class="modal fade" id="editTimetableModal" tabindex="-1" aria-labelledby="editTimetableModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="editTimetableModalLabel">Edit Timetable</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="editTimetableForm">
+                    <div class="modal-body">
+                        <input type="hidden" id="editTimetableId">
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <label for="editTimetableProgram" class="form-label">Program</label>
+                                <select class="form-select" id="editTimetableProgram" required>
+                                    <option value="">Select Program</option>
+                                    <option value="ecp">Extended Curriculum Program (ECP)</option>
+                                    <option value="dip">Diploma in IT</option>
+                                    <option value="adv">Advanced Diploma</option>
+                                    <option value="pg">Postgraduate</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="editTimetableLevel" class="form-label">Level</label>
+                                <select class="form-select" id="editTimetableLevel" required>
+                                    <option value="">Select Level</option>
+                                    <option value="1">Year 1</option>
+                                    <option value="2">Year 2</option>
+                                    <option value="3">Year 3</option>
+                                    <option value="4">Year 4</option>
+                                    <option value="honors">Honors</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="editTimetableSemester" class="form-label">Semester</label>
+                                <select class="form-select" id="editTimetableSemester" required>
+                                    <option value="">Select Semester</option>
+                                    <option value="1">Semester 1</option>
+                                    <option value="2">Semester 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="editTimetableYear" class="form-label">Academic Year</label>
+                                <input type="text" class="form-control" id="editTimetableYear" placeholder="e.g., 2025" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editTimetableStatus" class="form-label">Status</label>
+                                <select class="form-select" id="editTimetableStatus" required>
+                                    <option value="draft">Draft</option>
+                                    <option value="published">Published</option>
+                                    <option value="archived">Archived</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h6 class="mb-0">Timetable Entries</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="editTimetableEntriesTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th>Monday</th>
+                                                <th>Tuesday</th>
+                                                <th>Wednesday</th>
+                                                <th>Thursday</th>
+                                                <th>Friday</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="editTimetableEntriesBody">
+                                            <!-- Entries will be loaded via JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-secondary mt-2" id="editAddTimeSlotBtn">
+                                    <i class="fas fa-plus me-1"></i> Add Time Slot
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="editTimetableNotes" class="form-label">Important Notes</label>
+                            <textarea class="form-control" id="editTimetableNotes" rows="3" placeholder="Add any important notes for students..."></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="updateTimetableBtn">Update Timetable</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- View Timetable Modal -->
+    <div class="modal fade" id="viewTimetableModal" tabindex="-1" aria-labelledby="viewTimetableModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="viewTimetableModalLabel">View Timetable</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <p><strong>Program:</strong> <span id="viewTimetableProgram"></span></p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><strong>Level:</strong> <span id="viewTimetableLevel"></span></p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><strong>Semester:</strong> <span id="viewTimetableSemester"></span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <p><strong>Academic Year:</strong> <span id="viewTimetableYear"></span></p>
+                        </div>
+                        <div class="col-md-6">

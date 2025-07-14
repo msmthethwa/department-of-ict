@@ -1,0 +1,296 @@
+:root {
+    --mut-primary: #16657A;
+    --mut-secondary: #D39C2C;
+    --mut-light: #F5F5F5;
+    --mut-dark: #843434;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--mut-dark);
+}
+
+.navbar-mut {
+    background-color: var(--mut-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--mut-secondary);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-mut:hover {
+    background-color: #002244;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-mut .navbar-brand img {
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-mut .navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--mut-secondary) !important;
+    background-color: rgba(255, 102, 0, 0.15);
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    background-color: var(--mut-primary);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: none;
+}
+
+.dropdown-item {
+    color: white !important;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: var(--mut-secondary);
+    color: white !important;
+    text-decoration: none;
+}
+
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://www.mut.ac.za/wp-content/uploads/2023/06/slide-2-1024x576.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    background-color: var(--mut-light);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item a {
+    color: var(--mut-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover, .breadcrumb-item a:focus {
+    color: var(--mut-secondary);
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--mut-dark);
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--mut-primary);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.btn-mut {
+    background-color: var(--mut-secondary);
+    color: white;
+    border: none;
+}
+
+.btn-mut:hover {
+    background-color: #e55c00;
+    color: white;
+}
+
+footer {
+    background-color: var(--mut-primary);
+    color: white;
+    padding: 40px 0 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--mut-secondary);
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+}
+
+.social-icons a:hover {
+    background-color: var(--mut-secondary);
+}
+
+.quick-links li {
+    margin-bottom: 8px;
+}
+
+.timetable-container {
+    background-color: var(--mut-light);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.timetable {
+    width: 100%;
+}
+
+.timetable th {
+    background-color: var(--mut-primary);
+    color: white;
+}
+
+.timetable td, .timetable th {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.timetable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+a {
+    color: var(--mut-primary);
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: var(--mut-secondary);
+    text-decoration: underline;
+}
+
+a.dev {
+    color: var(--mut-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a.dev:hover, a.dev:focus {
+    color: var(--mut-primary);
+    text-decoration: underline;
+}
+
+/* Timetable Specific Styles */
+.lecture {
+    background-color: #d4edda;
+    font-weight: bold;
+}
+
+.lab {
+    background-color: #cce5ff;
+    font-weight: bold;
+}
+
+.tutorial {
+    background-color: #fff3cd;
+    font-weight: bold;
+}
+
+.break {
+    background-color: #f8d7da;
+    font-style: italic;
+}
+
+.empty {
+    background-color: #f8f9fa;
+}
+
+.program-selector {
+    margin-bottom: 20px;
+}
+
+.level-selector {
+    margin-bottom: 30px;
+}
+
+.timetable-section {
+    margin-bottom: 40px;
+}
+
+.timetable-title {
+    border-bottom: 2px solid var(--mut-secondary);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--mut-primary);
+}
+
+@media print {
+    .no-print {
+        display: none;
+    }
+    
+    .timetable {
+        page-break-inside: avoid;
+    }
+    
+    .timetable-section {
+        page-break-after: always;
+    }
+}
+
+@media (max-width: 768px) {
+    .timetable {
+        font-size: 0.8rem;
+    }
+    
+    .timetable td, .timetable th {
+        padding: 5px;
+    }
+}
+
+.important-notes-header {
+    background-color: var(--mut-dark) !important;
+    color: white !important;
+}
+
+.btn-custom-gold {
+    color: var(--mut-secondary);
+    border-color: var(--mut-secondary);
+}
+
+.btn-custom-gold:hover, .btn-custom-gold:focus {
+    color: white;
+    background-color: var(--mut-secondary);
+    border-color: var(--mut-secondary);
+    text-decoration: none;
+}

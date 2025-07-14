@@ -1,0 +1,353 @@
+:root {
+    --mut-primary: #16657A;
+    --mut-secondary: #D39C2C;
+    --mut-light: #F5F5F5;
+    --mut-dark: #843434;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--mut-dark);
+}
+
+.navbar-mut {
+    background-color: var(--mut-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--mut-secondary);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-mut:hover {
+    background-color: #002244;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-mut .navbar-brand img {
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-mut .navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--mut-secondary) !important;
+    background-color: rgba(255, 102, 0, 0.15);
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    background-color: var(--mut-primary);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: none;
+}
+
+.dropdown-item {
+    color: white !important;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: var(--mut-secondary);
+    color: white !important;
+    text-decoration: none;
+}
+
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://www.mut.ac.za/wp-content/uploads/2023/06/slide-2-1024x576.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    background-color: var(--mut-light);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item a {
+    color: var(--mut-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover, .breadcrumb-item a:focus {
+    color: var(--mut-secondary);
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--mut-dark);
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--mut-primary);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.btn-mut {
+    background-color: var(--mut-secondary);
+    color: white;
+    border: none;
+}
+
+.btn-mut:hover {
+    background-color: #e55c00;
+    color: white;
+}
+
+.event-card {
+    border-left: 4px solid var(--mut-secondary);
+}
+
+footer {
+    background-color: var(--mut-primary);
+    color: white;
+    padding: 40px 0 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--mut-secondary);
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+}
+
+.social-icons a:hover {
+    background-color: var(--mut-secondary);
+}
+
+.quick-links li {
+    margin-bottom: 8px;
+}
+
+.event-highlight {
+    background-color: rgba(211, 156, 44, 0.1);
+    border-left: 4px solid var(--mut-secondary);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.event-category {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.category-workshop {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.category-seminar {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.category-conference {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.category-social {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.event-date-badge {
+    background-color: var(--mut-primary);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.event-date-badge .day {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.event-date-badge .month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.event-filter {
+    background-color: var(--mut-light);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.event-image {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--mut-primary);
+    border-color: var(--mut-primary);
+}
+
+.pagination .page-link {
+    color: var(--mut-primary);
+}
+
+a {
+    color: var(--mut-primary);
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: var(--mut-secondary);
+    text-decoration: underline;
+}
+
+/* Past Events Specific Styles */
+.past-event-card {
+    border-left: 4px solid #6c757d;
+}
+
+.past-event-image {
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    filter: grayscale(30%);
+    opacity: 0.9;
+}
+
+.past-event-date {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.resource-badge {
+    background-color: var(--mut-light);
+    color: var(--mut-dark);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.resource-badge:hover {
+    background-color: var(--mut-secondary);
+    color: white;
+    text-decoration: none;
+}
+
+.year-filter {
+    margin-bottom: 20px;
+}
+
+.year-btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* Override color for year filter buttons */
+.year-btn {
+    color: var(--mut-secondary) !important;
+    border-color: var(--mut-secondary) !important;
+}
+
+/* Pagination page number color for pastEvents.html */
+.pagination .page-link {
+    color: var(--mut-primary) !important;
+    border: 1px solid var(--mut-secondary) !important;
+}
+
+.pagination .page-link:hover {
+    color: white !important;
+    background-color: var(--mut-secondary) !important;
+    border-color: var(--mut-secondary) !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--mut-secondary) !important;
+    border-color: var(--mut-secondary) !important;
+    color: white !important;
+    border: 1px solid var(--mut-secondary) !important;
+}
+
+.year-btn:hover,
+.year-btn:focus {
+    background-color: var(--mut-secondary) !important;
+    color: white !important;
+    border-color: var(--mut-secondary) !important;
+}
+
+/* Active year button style */
+.year-btn.active {
+    background-color: var(--mut-secondary) !important;
+    color: var(--mut-light) !important;
+    border-color: var(--mut-secondary) !important;
+}
+
+.event-stats {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.stats-icon {
+    color: var(--mut-primary);
+    margin-right: 5px;
+}

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Events - Department of ICT - Mangosuthu University of Technology</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/pastEvents.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="bg-dark text-white py-2">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-6">
+                    <span><i class="fas fa-phone-alt me-2"></i> +27 31 907 7111</span>
+                    <span class="ms-3"><i class="fas fa-envelope me-2"></i> info@mut.ac.za</span>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="https://www.mut.ac.za/student-portal/" class="text-white me-3"><i class="fas fa-user-graduate me-1"></i> Student Portal</a>
+                    <a href="https://livemutac.sharepoint.com/sites/hub" class="text-white"><i class="fas fa-user-tie me-1"></i> Staff Portal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-mut sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://www.mut.ac.za">
+                <img src="https://i.postimg.cc/nV2wPJNG/Upscale-Image-9-20250709-Photoroom.png" alt="MUT Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon text-white"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.mut.ac.za">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown">
+                            About MUT
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Our Story</a></li>
+                            <li><a class="dropdown-item" href="#">Leadership</a></li>
+                            <li><a class="dropdown-item" href="#">Strategic Plan</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultiesDropdown" role="button" data-bs-toggle="dropdown">
+                            Faculties
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Faculty of Engineering</a></li>
+                            <li><a class="dropdown-item" href="#">Faculty of Management Sciences</a></li>
+                            <li><a class="dropdown-item" href="#">Faculty of Applied and Health Sciences</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button" data-bs-toggle="dropdown">
+                            Students
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Prospective Students</a></li>
+                            <li><a class="dropdown-item" href="#">Current Students</a></li>
+                            <li><a class="dropdown-item" href="#">Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Past Events Header -->
+    <div class="hero-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold">Past ICT Department Events</h1>
+                    <p class="lead">Browse our archive of workshops, seminars, and networking events from previous years</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://www.mut.ac.za">Mangosuthu University of Technology</a></li>
+            <li class="breadcrumb-item"><a href="https://www.mut.ac.za/faculty-of-applied-and-health-sciences/">Faculty of Applied and Health Sciences</a></li>
+            <li class="breadcrumb-item"><a href="index.html">Department of Information & Communication Technology</a></li>
+            <li class="breadcrumb-item"><a href="events.html">Events</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Past Events</li>
+        </ol>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Year Filter -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h4>Filter by Year</h4>
+                <div class="year-filter">
+                    <a href="#" class="btn btn-outline-primary year-btn active">All Years</a>
+                    <a href="#" class="btn btn-outline-primary year-btn">2025</a>
+                    <a href="#" class="btn btn-outline-primary year-btn">2024</a>
+                    <a href="#" class="btn btn-outline-primary year-btn">2023</a>
+                    <a href="#" class="btn btn-outline-primary year-btn">2022</a>
+                    <a href="#" class="btn btn-outline-primary year-btn">2021</a>
+                    <a href="#" class="btn btn-outline-primary year-btn">2020</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Event Filter -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="event-filter">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="eventType" class="form-label">Event Type</label>
+                            <select class="form-select" id="eventType">
+                                <option value="">All Types</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="seminar">Seminar</option>
+                                <option value="conference">Conference</option>
+                                <option value="career">Career Fair</option>
+                                <option value="social">Social Event</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="keywordSearch" class="form-label">Keyword Search</label>
+                            <input type="text" class="form-control" id="keywordSearch" placeholder="Search past events...">
+                        </div>
+                        <div class="col-md-4 mb-3 d-flex align-items-end">
+                            <button type="submit" class="btn btn-mut me-2">Apply Filters</button>
+                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Past Events Grid -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3 class="mb-3">2025 Events</h3>
+            </div>
+            
+            <!-- Event 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 past-event-card">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="past-event-image" alt="Career Fair">
+                    <div class="card-body">
+                        <span class="event-category category-social">Career Fair</span>
+                        <h5 class="card-title mt-2">Annual ICT Career Fair 2025</h5>
+                        <p class="past-event-date"><i class="far fa-calendar me-1"></i> 15 August 2025</p>
+                        <p class="card-text">Students met with top employers in the ICT industry to explore career opportunities.</p>
+                        
+                        <div class="event-stats mb-3">
+                            <span class="me-3"><i class="fas fa-users stats-icon"></i> 215 attendees</span>
+                            <span><i class="fas fa-building stats-icon"></i> 32 companies</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <a href="#" class="resource-badge"><i class="fas fa-file-pdf me-1"></i> Event Brochure</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-photo-video me-1"></i> Photos</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-newspaper me-1"></i> Press Release</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 2 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 past-event-card">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="past-event-image" alt="Tech Workshop">
+                    <div class="card-body">
+                        <span class="event-category category-workshop">Workshop</span>
+                        <h5 class="card-title mt-2">Tech Innovation Workshop</h5>
+                        <p class="past-event-date"><i class="far fa-calendar me-1"></i> 22 August 2025</p>
+                        <p class="card-text">Hands-on workshop on emerging technologies in ICT including AI, blockchain and IoT applications.</p>
+                        
+                        <div class="event-stats mb-3">
+                            <span class="me-3"><i class="fas fa-users stats-icon"></i> 28 participants</span>
+                            <span><i class="fas fa-laptop-code stats-icon"></i> 5 practical sessions</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <a href="#" class="resource-badge"><i class="fas fa-file-code me-1"></i> Code Samples</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-photo-video me-1"></i> Workshop Photos</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-file-powerpoint me-1"></i> Presentations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 3 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 past-event-card">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="past-event-image" alt="Guest Lecture">
+                    <div class="card-body">
+                        <span class="event-category category-seminar">Seminar</span>
+                        <h5 class="card-title mt-2">Guest Lecture: AI in Business</h5>
+                        <p class="past-event-date"><i class="far fa-calendar me-1"></i> 5 September 2025</p>
+                        <p class="card-text">Industry expert discussed practical applications of AI in South African business contexts.</p>
+                        
+                        <div class="event-stats mb-3">
+                            <span class="me-3"><i class="fas fa-users stats-icon"></i> 87 attendees</span>
+                            <span><i class="fas fa-chalkboard-teacher stats-icon"></i> 2 speakers</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <a href="#" class="resource-badge"><i class="fas fa-file-pdf me-1"></i> Lecture Slides</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-video me-1"></i> Recording</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 2024 Events -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3 class="mb-3">2024 Events</h3>
+            </div>
+            
+            <!-- Event 4 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 past-event-card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="past-event-image" alt="Hackathon">
+                    <div class="card-body">
+                        <span class="event-category category-workshop">Competition</span>
+                        <h5 class="card-title mt-2">MUT Annual Hackathon 2024</h5>
+                        <p class="past-event-date"><i class="far fa-calendar me-1"></i> 12-14 September 2024</p>
+                        <p class="card-text">48-hour coding competition with prizes for innovative solutions to real-world problems.</p>
+                        
+                        <div class="event-stats mb-3">
+                            <span class="me-3"><i class="fas fa-users stats-icon"></i> 14 teams</span>
+                            <span><i class="fas fa-trophy stats-icon"></i> 3 winners</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <a href="#" class="resource-badge"><i class="fas fa-file-code me-1"></i> Winning Projects</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-photo-video me-1"></i> Event Photos</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-newspaper me-1"></i> News Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 5 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 past-event-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="past-event-image" alt="Networking Event">
+                    <div class="card-body">
+                        <span class="event-category category-social">Networking</span>
+                        <h5 class="card-title mt-2">ICT Alumni Networking Mixer 2024</h5>
+                        <p class="past-event-date"><i class="far fa-calendar me-1"></i> 20 September 2024</p>
+                        <p class="card-text">Connected current students with successful ICT alumni to expand professional networks.</p>
+                        
+                        <div class="event-stats mb-3">
+                            <span class="me-3"><i class="fas fa-users stats-icon"></i> 72 attendees</span>
+                            <span><i class="fas fa-user-graduate stats-icon"></i> 35 alumni</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <a href="#" class="resource-badge"><i class="fas fa-photo-video me-1"></i> Event Photos</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-file-alt me-1"></i> Alumni Directory</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 6 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 past-event-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="past-event-image" alt="Conference">
+                    <div class="card-body">
+                        <span class="event-category category-conference">Conference</span>
+                        <h5 class="card-title mt-2">Digital Transformation Conference 2024</h5>
+                        <p class="past-event-date"><i class="far fa-calendar me-1"></i> 5-7 October 2024</p>
+                        <p class="card-text">Three-day conference featuring industry leaders discussing digital transformation strategies.</p>
+                        
+                        <div class="event-stats mb-3">
+                            <span class="me-3"><i class="fas fa-users stats-icon"></i> 156 attendees</span>
+                            <span><i class="fas fa-chalkboard-teacher stats-icon"></i> 12 speakers</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <a href="#" class="resource-badge"><i class="fas fa-file-pdf me-1"></i> Conference Proceedings</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-video me-1"></i> Keynote Recordings</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-photo-video me-1"></i> Event Photos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 2023 Events -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3 class="mb-3">2023 Events</h3>
+            </div>
+            
+            <!-- Event 7 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 past-event-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="past-event-image" alt="Workshop">
+                    <div class="card-body">
+                        <span class="event-category category-workshop">Workshop</span>
+                        <h5 class="card-title mt-2">Cloud Computing Workshop 2023</h5>
+                        <p class="past-event-date"><i class="far fa-calendar me-1"></i> 15 October 2023</p>
+                        <p class="card-text">Hands-on training on AWS and Azure cloud platforms with practical case studies.</p>
+                        
+                        <div class="event-stats mb-3">
+                            <span class="me-3"><i class="fas fa-users stats-icon"></i> 22 participants</span>
+                            <span><i class="fas fa-laptop-code stats-icon"></i> 4 practical labs</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <a href="#" class="resource-badge"><i class="fas fa-file-code me-1"></i> Lab Exercises</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-file-powerpoint me-1"></i> Presentations</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 8 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 past-event-card">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="past-event-image" alt="Cybersecurity">
+                    <div class="card-body">
+                        <span class="event-category category-seminar">Seminar</span>
+                        <h5 class="card-title mt-2">Cybersecurity Awareness Seminar 2023</h5>
+                        <p class="past-event-date"><i class="far fa-calendar me-1"></i> 15 July 2023</p>
+                        <p class="card-text">Educational seminar on cybersecurity best practices for students and staff.</p>
+                        
+                        <div class="event-stats mb-3">
+                            <span class="me-3"><i class="fas fa-users stats-icon"></i> 94 attendees</span>
+                            <span><i class="fas fa-shield-alt stats-icon"></i> 3 security experts</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <a href="#" class="resource-badge"><i class="fas fa-file-pdf me-1"></i> Security Checklist</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-video me-1"></i> Seminar Recording</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event 9 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 past-event-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="past-event-image" alt="Women in Tech">
+                    <div class="card-body">
+                        <span class="event-category category-seminar">Panel</span>
+                        <h5 class="card-title mt-2">Women in Tech Panel 2023</h5>
+                        <p class="past-event-date"><i class="far fa-calendar me-1"></i> 28 June 2023</p>
+                        <p class="card-text">Panel discussion with successful women in ICT sharing their experiences and advice.</p>
+                        
+                        <div class="event-stats mb-3">
+                            <span class="me-3"><i class="fas fa-users stats-icon"></i> 68 attendees</span>
+                            <span><i class="fas fa-user-friends stats-icon"></i> 5 panelists</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <a href="#" class="resource-badge"><i class="fas fa-video me-1"></i> Panel Recording</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-photo-video me-1"></i> Event Photos</a>
+                            <a href="#" class="resource-badge"><i class="fas fa-newspaper me-1"></i> News Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pagination -->
+        <nav aria-label="Past events pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Request Materials Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card bg-light">
+                    <div class="card-body text-center py-4">
+                        <h4 class="mb-3">Can't Find What You're Looking For?</h4>
+                        <p class="mb-4">If you're searching for materials from a past event that aren't listed here, please contact us and we'll try to help.</p>
+                        <a href="#" class="btn btn-mut">Contact ICT Department</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="https://i.postimg.cc/nV2wPJNG/Upscale-Image-9-20250709-Photoroom.png" alt="MUT Logo" class="img-fluid mb-3" style="max-width: 200px;">
+                    <p>511 Griffiths Mxenge Hwy, Umlazi, Durban, 4031</p>
+                    <p><strong>Call centre:</strong> 031 907 7111</p>
+                    <p><strong>Email:</strong> info@mut.ac.za</p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled quick-links">
+                                <li><a href="#">About MUT</a></li>
+                                <li><a href="#">Faculties</a></li>
+                                <li><a href="#">Research</a></li>
+                                <li><a href="#">Library</a></li>
+                                <li><a href="#">Alumni</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled quick-links">
+                                <li><a href="#">Apply</a></li>
+                                <li><a href="#">Fees & Funding</a></li>
+                                <li><a href="#">Student Portal</a></li>
+                                <li><a href="#">Timetables</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons mb-3">
+                        <a href="https://www.facebook.com/MUTUmlazi/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/MUTcampus" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/c/MangosuthuUniversityofTechnology" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/school/mangosuthu-university-of-technology/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/mut_campus/" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-secondary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Mangosuthu University of Technology. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/pastEvents.js"></script>
+</body>
+</html>

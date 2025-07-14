@@ -1,0 +1,359 @@
+<!-- Dashboard Cards -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card card-admin text-white bg-primary mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Published News</h6>
+                        <h2 class="mb-0" id="publishedNewsCount">24</h2>
+                    </div>
+                    <i class="fas fa-newspaper fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-admin text-white bg-success mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Subscribers</h6>
+                        <h2 class="mb-0" id="subscribersCount">142</h2>
+                    </div>
+                    <i class="fas fa-users fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-admin text-white bg-warning mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Featured News</h6>
+                        <h2 class="mb-0" id="featuredNewsCount">5</h2>
+                    </div>
+                    <i class="fas fa-star fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-admin text-white bg-info mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Draft News</h6>
+                        <h2 class="mb-0" id="draftNewsCount">3</h2>
+                    </div>
+                    <i class="fas fa-edit fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- News Table -->
+<div class="card card-admin mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="fas fa-newspaper me-2"></i> All News & Announcements</h5>
+        <a href="#add-news" class="btn btn-sm btn-mut" data-bs-toggle="modal" data-bs-target="#addNewsModal"><i class="fas fa-plus me-1"></i> Add News</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover" id="newsTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Featured</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- News items will be dynamically loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <nav aria-label="News pagination">
+            <ul class="pagination justify-content-center mb-0">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- Add News Modal -->
+<div class="modal fade" id="addNewsModal" tabindex="-1" aria-labelledby="addNewsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNewsModalLabel">Add News Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addNewsForm">
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+                            <label for="newsTitle" class="form-label required-field">Title</label>
+                            <input type="text" class="form-control" id="newsTitle" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="newsCategory" class="form-label required-field">Category</label>
+                            <select class="form-select" id="newsCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="announcement">Announcement</option>
+                                <option value="achievement">Achievement</option>
+                                <option value="event">Event</option>
+                                <option value="research">Research</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="newsDate" class="form-label required-field">Publish Date</label>
+                            <input type="date" class="form-control" id="newsDate" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="newsStatus" class="form-label required-field">Status</label>
+                            <select class="form-select" id="newsStatus" required>
+                                <option value="published">Published</option>
+                                <option value="draft">Draft</option>
+                                <option value="scheduled">Scheduled</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="newsSummary" class="form-label required-field">Summary/Excerpt</label>
+                        <textarea class="form-control" id="newsSummary" rows="3" required></textarea>
+                        <small class="text-muted">This will appear on the news listing page (max 200 characters)</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label required-field">Featured Image</label>
+                        <div class="image-upload-container" id="imageUploadContainer">
+                            <i class="fas fa-cloud-upload-alt fa-3x mb-3"></i>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="text-muted">Recommended size: 800x450px (JPG, PNG)</p>
+                            <input type="file" id="newsImageUpload" accept="image/*" style="display: none;">
+                            <img id="imagePreview" class="image-preview">
+                            <div class="progress upload-progress">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="newsImageUrl">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tags</label>
+                        <div class="tag-input-container" id="tagContainer">
+                            <!-- Tags will be added here -->
+                            <input type="text" class="tag-input" id="tagInput" placeholder="Add tags...">
+                        </div>
+                        <small class="text-muted">Press Enter or comma to add tags</small>
+                        <input type="hidden" id="newsTags">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="newsContent" class="form-label required-field">Content</label>
+                        <div class="editor-toolbar">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="bold"><i class="fas fa-bold"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="italic"><i class="fas fa-italic"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="underline"><i class="fas fa-underline"></i></button>
+                            <div class="btn-group btn-group-sm">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fas fa-heading"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" data-command="h1">Heading 1</a></li>
+                                    <li><a class="dropdown-item" href="#" data-command="h2">Heading 2</a></li>
+                                    <li><a class="dropdown-item" href="#" data-command="h3">Heading 3</a></li>
+                                    <li><a class="dropdown-item" href="#" data-command="p">Paragraph</a></li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="createLink"><i class="fas fa-link"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="insertImage"><i class="fas fa-image"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="undo"><i class="fas fa-undo"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="redo"><i class="fas fa-redo"></i></button>
+                        </div>
+                        <div class="editor-content" id="newsContent" contenteditable="true"></div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="isFeaturedNews">
+                                <label class="form-check-label" for="isFeaturedNews">Featured News</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="sendNewsletter">
+                                <label class="form-check-label" for="sendNewsletter">Include in Newsletter</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-outline-secondary">Save Draft</button>
+                <button type="button" class="btn btn-mut" id="saveNewsBtn">Publish News</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit News Modal -->
+<div class="modal fade" id="editNewsModal" tabindex="-1" aria-labelledby="editNewsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editNewsModalLabel">Edit News Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editNewsForm">
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+                            <label for="editNewsTitle" class="form-label required-field">Title</label>
+                            <input type="text" class="form-control" id="editNewsTitle" value="ICT Students Win National Coding Competition" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="editNewsCategory" class="form-label required-field">Category</label>
+                            <select class="form-select" id="editNewsCategory" required>
+                                <option value="announcement">Announcement</option>
+                                <option value="achievement" selected>Achievement</option>
+                                <option value="event">Event</option>
+                                <option value="research">Research</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="editNewsDate" class="form-label required-field">Publish Date</label>
+                            <input type="date" class="form-control" id="editNewsDate" value="2025-02-10" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="editNewsStatus" class="form-label required-field">Status</label>
+                            <select class="form-select" id="editNewsStatus" required>
+                                <option value="published" selected>Published</option>
+                                <option value="draft">Draft</option>
+                                <option value="scheduled">Scheduled</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editNewsSummary" class="form-label required-field">Summary/Excerpt</label>
+                        <textarea class="form-control" id="editNewsSummary" rows="3" required>A team of third-year ICT students won first place in the national hackathon competition held in Johannesburg last weekend. Their innovative mobile app solution for rural healthcare access impressed the judges and earned them a R50,000 prize.</textarea>
+                        <small class="text-muted">This will appear on the news listing page (max 200 characters)</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label required-field">Featured Image</label>
+                        <div class="image-upload-container" id="editImageUploadContainer">
+                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" id="editImagePreview" class="image-preview" style="display: block;">
+                            <p>Click to change image</p>
+                            <input type="file" id="editNewsImageUpload" accept="image/*" style="display: none;">
+                            <div class="progress upload-progress">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="editNewsImageUrl" value="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tags</label>
+                        <div class="tag-input-container" id="editTagContainer">
+                            <span class="tag-item">Student Success<i class="fas fa-times remove-tag"></i></span>
+                            <span class="tag-item">Competition<i class="fas fa-times remove-tag"></i></span>
+                            <span class="tag-item">Mobile Development<i class="fas fa-times remove-tag"></i></span>
+                            <input type="text" class="tag-input" id="editTagInput" placeholder="Add tags...">
+                        </div>
+                        <small class="text-muted">Press Enter or comma to add tags</small>
+                        <input type="hidden" id="editNewsTags" value="Student Success,Competition,Mobile Development">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="editNewsContent" class="form-label required-field">Content</label>
+                        <div class="editor-toolbar">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="bold"><i class="fas fa-bold"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="italic"><i class="fas fa-italic"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="underline"><i class="fas fa-underline"></i></button>
+                            <div class="btn-group btn-group-sm">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fas fa-heading"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" data-command="h1">Heading 1</a></li>
+                                    <li><a class="dropdown-item" href="#" data-command="h2">Heading 2</a></li>
+                                    <li><a class="dropdown-item" href="#" data-command="h3">Heading 3</a></li>
+                                    <li><a class="dropdown-item" href="#" data-command="p">Paragraph</a></li>
+                                </ul>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="createLink"><i class="fas fa-link"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="insertImage"><i class="fas fa-image"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="undo"><i class="fas fa-undo"></i></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-command="redo"><i class="fas fa-redo"></i></button>
+                        </div>
+                        <div class="editor-content" id="editNewsContent" contenteditable="true">
+                            <h3>ICT Students Win National Coding Competition</h3>
+                            <p>A team of third-year ICT students from Mangosuthu University of Technology has won first place in the prestigious National Hackathon Competition held in Johannesburg last weekend. The team, consisting of Sipho Dlamini, Thandi Nkosi, and James Mbeki, impressed the judges with their innovative mobile application designed to improve healthcare access in rural areas.</p>
+                            <h4>The Winning Solution</h4>
+                            <p>Their application, called "RuralHealth Connect," uses AI-powered diagnostics and offline functionality to help community healthcare workers in areas with limited internet connectivity. The app includes features for:</p>
+                            <ul>
+                                <li>Symptom checking with basic diagnostic suggestions</li>
+                                <li>Offline medical reference library</li>
+                                <li>Appointment scheduling that syncs when connectivity is available</li>
+                                <li>Multilingual support for local languages</li>
+                            </ul>
+                            <h4>Competition Details</h4>
+                            <p>The competition, sponsored by major tech companies including Microsoft and MTN, saw participation from 32 universities across South Africa. Teams had 48 hours to develop a solution addressing one of several social challenges.</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="editIsFeaturedNews" checked>
+                                <label class="form-check-label" for="editIsFeaturedNews">Featured News</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="editSendNewsletter">
+                                <label class="form-check-label" for="editSendNewsletter">Include in Newsletter</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-outline-secondary">Save Draft</button>
+                <button type="button" class="btn btn-mut" id="updateNewsBtn">Update News</button>
+            </div>
+        </div>
+    </div>
+</div>

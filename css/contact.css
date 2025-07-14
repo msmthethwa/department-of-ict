@@ -1,0 +1,254 @@
+:root {
+    --mut-primary: #16657A;
+    --mut-secondary: #D39C2C;
+    --mut-light: #F5F5F5;
+    --mut-dark: #843434;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--mut-dark);
+}
+
+.navbar-mut {
+    background-color: var(--mut-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--mut-secondary);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-mut:hover {
+    background-color: #002244;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-mut .navbar-brand img {
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-mut .navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--mut-secondary) !important;
+    background-color: rgba(255, 102, 0, 0.15);
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    background-color: var(--mut-primary);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: none;
+}
+
+.dropdown-item {
+    color: white !important;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: var(--mut-secondary);
+    color: white !important;
+    text-decoration: none;
+}
+
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://www.mut.ac.za/wp-content/uploads/2023/06/slide-2-1024x576.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    background-color: var(--mut-light);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item a {
+    color: var(--mut-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover, .breadcrumb-item a:focus {
+    color: var(--mut-secondary);
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--mut-dark);
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--mut-primary);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.btn-mut {
+    background-color: var(--mut-secondary);
+    color: white;
+    border: none;
+}
+
+.btn-mut:hover {
+    background-color: #e55c00;
+    color: white;
+}
+
+footer {
+    background-color: var(--mut-primary);
+    color: white;
+    padding: 40px 0 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--mut-secondary);
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+}
+
+.social-icons a:hover {
+    background-color: var(--mut-secondary);
+}
+
+.quick-links li {
+    margin-bottom: 8px;
+}
+
+/* Contact Page Specific Styles */
+.contact-info-card {
+    height: 100%;
+    border-left: 4px solid var(--mut-secondary);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    color: var(--mut-secondary);
+    margin-bottom: 15px;
+}
+
+.contact-map {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    height: 100%;
+    min-height: 300px;
+}
+
+.department-hours {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.department-hours li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.department-hours .day {
+    font-weight: 600;
+}
+
+.form-control:focus {
+    border-color: var(--mut-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(211, 156, 44, 0.25);
+}
+
+.contact-person-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    transition: all 0.3s;
+}
+
+.contact-person-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.contact-person-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--mut-primary);
+    margin-right: 15px;
+}
+
+@media (max-width: 767.98px) {
+    .contact-person-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-person-img {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+/* Override button colors for View on Map, Email Us & View larger map */
+.contact-info-card a.btn-outline-primary {
+    color: var(--mut-secondary);
+    border-color: var(--mut-secondary);
+}
+
+.contact-info-card a.btn-outline-primary:hover,
+.contact-info-card a.btn-outline-primary:focus {
+    background-color: var(--mut-secondary);
+    color: white;
+    border-color: var(--mut-secondary);
+}
+
+/* Override icon color for Key Contacts section */
+h2.mb-4 > i.fas.fa-users {
+    color: var(--mut-secondary);
+}

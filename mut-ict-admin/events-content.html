@@ -1,0 +1,313 @@
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card card-admin text-white bg-primary mb-3">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="card-title">Upcoming Events</h6>
+                    <h2 class="mb-0" id="upcomingEventsCount">0</h2>
+                </div>
+                <i class="fas fa-calendar-day fa-3x opacity-50"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-admin text-white bg-success mb-3">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="card-title">Past Events</h6>
+                    <h2 class="mb-0" id="pastEventsCount">0</h2>
+                </div>
+                <i class="fas fa-history fa-3x opacity-50"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-admin text-white bg-warning mb-3">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="card-title">Registrations</h6>
+                    <h2 class="mb-0" id="totalRegistrationsCount">0</h2>
+                </div>
+                <i class="fas fa-clipboard-list fa-3x opacity-50"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-admin text-white bg-info mb-3">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="card-title">Featured Events</h6>
+                    <h2 class="mb-0" id="featuredEventsCount">0</h2>
+                </div>
+                <i class="fas fa-star fa-3x opacity-50"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card-admin" id="eventsSection">
+    <div class="card-header-admin d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="fas fa-calendar-day me-2"></i> Upcoming Events</h5>
+        <button class="btn btn-mut btn-sm" id="addEventBtn">
+            <i class="fas fa-plus me-1"></i> Add Event
+        </button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="eventsTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date & Time</th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card-admin mt-4" id="pastEventsSection">
+    <div class="card-header-admin">
+        <h5 class="mb-0"><i class="fas fa-history me-2"></i> Past Events</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="pastEventsTable" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Attendees</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Add/Edit Event Modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventModalTitle">Add New Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="eventForm">
+                    <input type="hidden" id="eventId">
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+                            <label for="eventTitle" class="form-label required-field">Event Title</label>
+                            <input type="text" class="form-control" id="eventTitle" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="eventType" class="form-label required-field">Event Type</label>
+                            <select class="form-select" id="eventType" required>
+                                <option value="">Select Type</option>
+                                <option value="Workshop">Workshop</option>
+                                <option value="Seminar">Seminar</option>
+                                <option value="Conference">Conference</option>
+                                <option value="Career Fair">Career Fair</option>
+                                <option value="Networking">Networking</option>
+                                <option value="Competition">Competition</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="eventStartDate" class="form-label required-field">Start Date</label>
+                            <input type="date" class="form-control" id="eventStartDate" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="eventEndDate" class="form-label">End Date (if multi-day)</label>
+                            <input type="date" class="form-control" id="eventEndDate">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="eventStartTime" class="form-label required-field">Start Time</label>
+                            <input type="time" class="form-control" id="eventStartTime" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="eventEndTime" class="form-label required-field">End Time</label>
+                            <input type="time" class="form-control" id="eventEndTime" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="eventLocation" class="form-label required-field">Location</label>
+                        <input type="text" class="form-control" id="eventLocation" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="eventDescription" class="form-label required-field">Description</label>
+                        <textarea class="form-control" id="eventDescription" rows="4" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Event Image</label>
+                        <div class="image-upload-container" id="eventImageUploadContainer">
+                            <i class="fas fa-image"></i>
+                            <p>Click to upload event image</p>
+                            <input type="file" id="eventImageUpload" accept="image/*" style="display: none;">
+                            <div class="progress mt-2" id="eventUploadProgress" style="display: none;">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <img src="" id="eventImagePreview" class="avatar-preview mt-2" style="display: none;">
+                        <button type="button" id="removeEventImageBtn" class="btn btn-danger btn-sm mt-2" style="display:none;">
+                            <i class="fas fa-trash me-1"></i> Remove Image
+                        </button>
+                        <input type="hidden" id="eventImageUrl">
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="requiresRegistration">
+                                <label class="form-check-label" for="requiresRegistration">Requires Registration</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="isFeaturedEvent">
+                                <label class="form-check-label" for="isFeaturedEvent">Featured Event</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="registrationSettings" style="display: none;">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="registrationDeadline" class="form-label">Registration Deadline</label>
+                                <input type="date" class="form-control" id="registrationDeadline">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="maxAttendees" class="form-label">Max Attendees</label>
+                                <input type="number" class="form-control" id="maxAttendees" min="0">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="earlyBirdPrice" class="form-label">Early Bird Price (R)</label>
+                                <input type="number" class="form-control" id="earlyBirdPrice" min="0" step="0.01">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="standardPrice" class="form-label">Standard Price (R)</label>
+                                <input type="number" class="form-control" id="standardPrice" min="0" step="0.01">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="studentPrice" class="form-label">Student Price (R)</label>
+                                <input type="number" class="form-control" id="studentPrice" min="0" step="0.01">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="earlyBirdDeadline" class="form-label">Early Bird Deadline</label>
+                            <input type="date" class="form-control" id="earlyBirdDeadline">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="eventPrerequisites" class="form-label">Prerequisites (if any)</label>
+                        <textarea class="form-control" id="eventPrerequisites" rows="2"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Speakers</label>
+                        <div id="speakersContainer">
+                            <!-- Speakers will be added here -->
+                        </div>
+                        <button type="button" class="btn btn-outline-secondary btn-sm mt-2" id="addSpeakerBtn">
+                            <i class="fas fa-plus me-1"></i> Add Speaker
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-mut" id="saveEventBtn">Save Event</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Speaker Modal -->
+<div class="modal fade" id="speakerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Speaker</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="speakerForm">
+                    <div class="mb-3">
+                        <label for="speakerName" class="form-label required-field">Name</label>
+                        <input type="text" class="form-control" id="speakerName" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="speakerTitle" class="form-label required-field">Title/Position</label>
+                        <input type="text" class="form-control" id="speakerTitle" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="speakerBio" class="form-label required-field">Bio</label>
+                        <textarea class="form-control" id="speakerBio" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Speaker Photo</label>
+                        <div class="image-upload-container" id="speakerImageUploadContainer">
+                            <i class="fas fa-user-circle"></i>
+                            <p>Click to upload speaker photo</p>
+                            <input type="file" id="speakerImageUpload" accept="image/*" style="display: none;">
+                            <div class="progress mt-2" id="speakerUploadProgress" style="display: none;">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <img src="" id="speakerImagePreview" class="avatar-preview mt-2" style="display: none;">
+                        <input type="hidden" id="speakerImageUrl">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-mut" id="saveSpeakerBtn">Save Speaker</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Action</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="confirmationMessage">
+                Are you sure you want to delete this event?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelActionBtn" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmActionBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>

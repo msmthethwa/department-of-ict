@@ -1,0 +1,408 @@
+:root {
+    --mut-primary: #16657A;
+    --mut-secondary: #D39C2C;
+    --mut-light: #F5F5F5;
+    --mut-dark: #843434;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--mut-dark);
+}
+
+.navbar-mut {
+    background-color: var(--mut-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--mut-secondary);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-mut:hover {
+    background-color: #002244;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-mut .navbar-brand img {
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-mut .navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--mut-secondary) !important;
+    background-color: rgba(255, 102, 0, 0.15);
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    background-color: var(--mut-primary);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: none;
+}
+
+.dropdown-item {
+    color: white !important;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: var(--mut-secondary);
+    color: white !important;
+    text-decoration: none;
+}
+
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://www.mut.ac.za/wp-content/uploads/2023/06/slide-2-1024x576.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    background-color: var(--mut-light);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item a {
+    color: var(--mut-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover, .breadcrumb-item a:focus {
+    color: var(--mut-secondary);
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--mut-dark);
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--mut-primary);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.btn-mut {
+    background-color: var(--mut-secondary);
+    color: white;
+    border: none;
+}
+
+.btn-mut:hover {
+    background-color: #e55c00;
+    color: white;
+}
+
+.staff-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--mut-primary);
+}
+
+.event-card {
+    border-left: 4px solid var(--mut-secondary);
+}
+
+footer {
+    background-color: var(--mut-primary);
+    color: white;
+    padding: 40px 0 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--mut-secondary);
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+}
+
+.social-icons a:hover {
+    background-color: var(--mut-secondary);
+}
+
+.quick-links li {
+    margin-bottom: 8px;
+}
+
+.timetable-container {
+    background-color: var(--mut-light);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.timetable {
+    width: 100%;
+}
+
+.timetable th {
+    background-color: var(--mut-primary);
+    color: white;
+}
+
+.timetable td, .timetable th {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.timetable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.program-card {
+    height: 100%;
+}
+
+.partnership-logos img {
+    width: 80px;
+    height: 80px;
+    margin: 15px;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.partnership-logos img:hover {
+    filter: grayscale(0%);
+}
+
+a {
+    color: var(--mut-primary);
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: var(--mut-secondary);
+    text-decoration: underline;
+}
+
+a.dev {
+    color: var(--mut-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a.dev:hover, a.dev:focus {
+    color: var(--mut-primary);
+    text-decoration: underline;
+}
+
+/* Staff Directory Specific Styles */
+.staff-search {
+    background-color: var(--mut-light);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.staff-card {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.staff-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.staff-info {
+    margin-top: 15px;
+}
+
+.staff-position {
+    color: var(--mut-secondary);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.staff-department {
+    color: var(--mut-primary);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.staff-contact {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.staff-expertise {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.expertise-badge {
+    display: inline-block;
+    background-color: var(--mut-light);
+    color: var(--mut-primary);
+    padding: 3px 8px;
+    border-radius: 15px;
+    margin: 2px;
+    font-size: 0.75rem;
+}
+
+.department-filter {
+    margin-bottom: 20px;
+}
+
+.alphabet-filter {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.alphabet-filter .btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profile Modal Styles */
+.profile-modal-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--mut-primary);
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.profile-social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.profile-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--mut-light);
+    border-radius: 50%;
+    margin: 0 5px;
+    color: var(--mut-primary);
+    transition: all 0.3s;
+}
+
+.profile-social-links a:hover {
+    background-color: var(--mut-primary);
+    color: white;
+    text-decoration: none;
+}
+
+.profile-section {
+    margin-bottom: 25px;
+}
+
+.profile-section-title {
+    color: var(--mut-primary);
+    border-bottom: 2px solid var(--mut-secondary);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.profile-bio {
+    line-height: 1.6;
+}
+
+@media (max-width: 767.98px) {
+    .staff-card {
+        margin-bottom: 20px;
+    }
+    
+    .alphabet-filter .btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .profile-modal-img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Custom text color for icons */
+.text-custom {
+    color: var(--mut-secondary) !important;
+}
+
+/* Custom styles for pagination links */
+.container .pagination .page-link {
+    color: var(--mut-primary) !important;
+    border-color: var(--mut-secondary) !important;
+}
+
+.container .pagination .page-link:hover {
+    background-color: var(--mut-secondary) !important;
+    color: white !important;
+    border-color: var(--mut-secondary) !important;
+}
+
+.container .pagination .page-item.active .page-link {
+    background-color: var(--mut-secondary) !important;
+    border-color: var(--mut-secondary) !important;
+    color: white !important;
+}

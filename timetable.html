@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetables | Department of ICT - MUT</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/timetable.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="bg-dark text-white py-2">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-6">
+                    <span><i class="fas fa-phone-alt me-2"></i> +27 31 907 7111</span>
+                    <span class="ms-3"><i class="fas fa-envelope me-2"></i> info@mut.ac.za</span>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="https://www.mut.ac.za/student-portal/" class="text-white me-3"><i class="fas fa-user-graduate me-1"></i> Student Portal</a>
+                    <a href="https://livemutac.sharepoint.com/sites/hub" class="text-white"><i class="fas fa-user-tie me-1"></i> Staff Portal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-mut sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://www.mut.ac.za">
+                <img src="https://i.postimg.cc/nV2wPJNG/Upscale-Image-9-20250709-Photoroom.png" alt="MUT Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon text-white"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown">
+                            About MUT
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Our Story</a></li>
+                            <li><a class="dropdown-item" href="#">Leadership</a></li>
+                            <li><a class="dropdown-item" href="#">Strategic Plan</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="facultiesDropdown" role="button" data-bs-toggle="dropdown">
+                            Faculties
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Faculty of Engineering</a></li>
+                            <li><a class="dropdown-item" href="#">Faculty of Management Sciences</a></li>
+                            <li><a class="dropdown-item" href="#">Faculty of Applied and Health Sciences</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button" data-bs-toggle="dropdown">
+                            Students
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Prospective Students</a></li>
+                            <li><a class="dropdown-item" href="#">Current Students</a></li>
+                            <li><a class="dropdown-item" href="#">Registration</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Department Header -->
+    <div class="hero-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold">Department Timetables</h1>
+                    <p class="lead">Academic schedules for all ICT programs and levels</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="https://www.mut.ac.za">Mangosuthu University of Technology</a></li>
+            <li class="breadcrumb-item"><a href="https://www.mut.ac.za/faculty-of-applied-and-health-sciences/">Faculty of Applied and Health Sciences</a></li>
+            <li class="breadcrumb-item"><a href="index.html">Department of Information & Communication Technology</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Timetables</li>
+        </ol>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row no-print">
+            <div class="col-md-12">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i> Select a program and level to view the corresponding timetable. 
+                    <button class="btn btn-sm btn-mut float-end" onclick="window.print()">
+                        <i class="fas fa-print me-1"></i> Print Timetable
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Program Selector -->
+        <div class="row no-print">
+            <div class="col-md-12">
+                <div class="card program-selector">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-graduation-cap me-2"></i> Select Program</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-custom-gold w-100 program-btn active" data-program="ecp">
+                                    Extended Curriculum
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-custom-gold w-100 program-btn" data-program="dip">
+                                    Diploma in IT
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-custom-gold w-100 program-btn" data-program="adv">
+                                    Advanced Diploma
+                                </button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-custom-gold w-100 program-btn" data-program="pg">
+                                    Postgraduate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Level Selector -->
+        <div class="row no-print">
+            <div class="col-md-12">
+                <div class="card level-selector">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-layer-group me-2"></i> Select Level</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2 col-4 mb-2">
+                                <button class="btn btn-outline-secondary w-100 level-btn active" data-level="all">
+                                    All Levels
+                                </button>
+                            </div>
+                            <div class="col-md-2 col-4 mb-2">
+                                <button class="btn btn-outline-secondary w-100 level-btn" data-level="1">
+                                    Year 1
+                                </button>
+                            </div>
+                            <div class="col-md-2 col-4 mb-2">
+                                <button class="btn btn-outline-secondary w-100 level-btn" data-level="2">
+                                    Year 2
+                                </button>
+                            </div>
+                            <div class="col-md-2 col-4 mb-2">
+                                <button class="btn btn-outline-secondary w-100 level-btn" data-level="3">
+                                    Year 3
+                                </button>
+                            </div>
+                            <div class="col-md-2 col-4 mb-2">
+                                <button class="btn btn-outline-secondary w-100 level-btn" data-level="4">
+                                    Year 4
+                                </button>
+                            </div>
+                            <div class="col-md-2 col-4 mb-2">
+                                <button class="btn btn-outline-secondary w-100 level-btn" data-level="honors">
+                                    Honors
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Timetables Section -->
+        <div class="timetable-container">
+            <h2 class="timetable-title">Department of Information & Communication Technology Timetables</h2>
+            <p class="text-muted mb-4">Academic Year 2025 - Semester 2 (Updated: 10 July 2025)</p>
+            
+            <!-- Legend -->
+            <div class="row mb-4 no-print">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0"><i class="fas fa-key me-2"></i> Timetable Key</h6>
+                        </div>
+                        <div class="card-body py-2">
+                            <div class="row">
+                                <div class="col-md-3 col-6">
+                                    <span class="lecture p-2 rounded">Lecture</span>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <span class="lab p-2 rounded">Lab/Practical</span>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <span class="tutorial p-2 rounded">Tutorial</span>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <span class="break p-2 rounded">Break</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Extended Curriculum Program -->
+            <div class="timetable-section" id="ecp-timetable">
+                <h3 class="mb-4">Extended Curriculum Program (ECP)</h3>
+                
+                <!-- ECP Year 1 -->
+                <div class="level-timetable" data-program="ecp" data-level="1">
+                    <h4>Year 1 - Semester 2</h4>
+                    <div class="table-responsive">
+                        <table class="timetable table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Time/Day</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00-09:00</td>
+                                    <td class="lecture">Maths Foundation (R202)</td>
+                                    <td class="tutorial">Communication Skills (R205)</td>
+                                    <td class="lecture">Computer Literacy (Lab 3)</td>
+                                    <td class="lab">Computer Literacy (Lab 3)</td>
+                                    <td class="lecture">Maths Foundation (R202)</td>
+                                </tr>
+                                <tr>
+                                    <td>09:00-10:00</td>
+                                    <td class="lecture">Maths Foundation (R202)</td>
+                                    <td class="tutorial">Communication Skills (R205)</td>
+                                    <td class="lecture">Computer Literacy (Lab 3)</td>
+                                    <td class="lab">Computer Literacy (Lab 3)</td>
+                                    <td class="lecture">Maths Foundation (R202)</td>
+                                </tr>
+                                <tr>
+                                    <td>10:00-11:00</td>
+                                    <td class="break" colspan="5">Tea Break</td>
+                                </tr>
+                                <tr>
+                                    <td>11:00-12:00</td>
+                                    <td class="lecture">Intro to Programming (R215)</td>
+                                    <td class="lab">Intro to Programming (Lab 1)</td>
+                                    <td class="lecture">Academic Literacy (R207)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Intro to Programming (Lab 1)</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00-13:00</td>
+                                    <td class="lecture">Intro to Programming (R215)</td>
+                                    <td class="lab">Intro to Programming (Lab 1)</td>
+                                    <td class="lecture">Academic Literacy (R207)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Intro to Programming (Lab 1)</td>
+                                </tr>
+                                <tr>
+                                    <td>13:00-14:00</td>
+                                    <td class="break" colspan="5">Lunch Break</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00-15:00</td>
+                                    <td class="tutorial">Maths Foundation (R202)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Academic Literacy (R207)</td>
+                                    <td class="lecture">Communication Skills (R205)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                                <tr>
+                                    <td>15:00-16:00</td>
+                                    <td class="tutorial">Maths Foundation (R202)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Academic Literacy (R207)</td>
+                                    <td class="lecture">Communication Skills (R205)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- ECP Year 2 -->
+                <div class="level-timetable" data-program="ecp" data-level="2">
+                    <h4 class="mt-5">Year 2 - Semester 2</h4>
+                    <div class="table-responsive">
+                        <table class="timetable table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Time/Day</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00-09:00</td>
+                                    <td class="lecture">Programming I (R215)</td>
+                                    <td class="lab">Programming I (Lab 2)</td>
+                                    <td class="lecture">Computer Systems (R210)</td>
+                                    <td class="lab">Computer Systems (Lab 4)</td>
+                                    <td class="lecture">Programming I (R215)</td>
+                                </tr>
+                                <tr>
+                                    <td>09:00-10:00</td>
+                                    <td class="lecture">Programming I (R215)</td>
+                                    <td class="lab">Programming I (Lab 2)</td>
+                                    <td class="lecture">Computer Systems (R210)</td>
+                                    <td class="lab">Computer Systems (Lab 4)</td>
+                                    <td class="lecture">Programming I (R215)</td>
+                                </tr>
+                                <tr>
+                                    <td>10:00-11:00</td>
+                                    <td class="break" colspan="5">Tea Break</td>
+                                </tr>
+                                <tr>
+                                    <td>11:00-12:00</td>
+                                    <td class="lecture">Business Studies (R208)</td>
+                                    <td class="tutorial">Technical Communication (R205)</td>
+                                    <td class="lecture">Mathematics I (R202)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Programming I (Lab 2)</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00-13:00</td>
+                                    <td class="lecture">Business Studies (R208)</td>
+                                    <td class="tutorial">Technical Communication (R205)</td>
+                                    <td class="lecture">Mathematics I (R202)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Programming I (Lab 2)</td>
+                                </tr>
+                                <tr>
+                                    <td>13:00-14:00</td>
+                                    <td class="break" colspan="5">Lunch Break</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00-15:00</td>
+                                    <td class="tutorial">Mathematics I (R202)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Business Studies (R208)</td>
+                                    <td class="lecture">Technical Communication (R205)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                                <tr>
+                                    <td>15:00-16:00</td>
+                                    <td class="tutorial">Mathematics I (R202)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Business Studies (R208)</td>
+                                    <td class="lecture">Technical Communication (R205)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diploma in IT -->
+            <div class="timetable-section" id="dip-timetable">
+                <h3 class="mb-4">Diploma in Information Technology</h3>
+                
+                <!-- Diploma Year 1 -->
+                <div class="level-timetable" data-program="dip" data-level="1">
+                    <h4>Year 1 - Semester 2</h4>
+                    <div class="table-responsive">
+                        <table class="timetable table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Time/Day</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00-09:00</td>
+                                    <td class="lecture">Programming I (R301)</td>
+                                    <td class="lab">Programming I (Lab 1)</td>
+                                    <td class="lecture">Computer Systems (R305)</td>
+                                    <td class="lab">Computer Systems (Lab 3)</td>
+                                    <td class="lecture">Programming I (R301)</td>
+                                </tr>
+                                <tr>
+                                    <td>09:00-10:00</td>
+                                    <td class="lecture">Programming I (R301)</td>
+                                    <td class="lab">Programming I (Lab 1)</td>
+                                    <td class="lecture">Computer Systems (R305)</td>
+                                    <td class="lab">Computer Systems (Lab 3)</td>
+                                    <td class="lecture">Programming I (R301)</td>
+                                </tr>
+                                <tr>
+                                    <td>10:00-11:00</td>
+                                    <td class="break" colspan="5">Tea Break</td>
+                                </tr>
+                                <tr>
+                                    <td>11:00-12:00</td>
+                                    <td class="lecture">Business Studies (R302)</td>
+                                    <td class="tutorial">Technical Communication (R304)</td>
+                                    <td class="lecture">Mathematics I (R303)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Programming I (Lab 1)</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00-13:00</td>
+                                    <td class="lecture">Business Studies (R302)</td>
+                                    <td class="tutorial">Technical Communication (R304)</td>
+                                    <td class="lecture">Mathematics I (R303)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Programming I (Lab 1)</td>
+                                </tr>
+                                <tr>
+                                    <td>13:00-14:00</td>
+                                    <td class="break" colspan="5">Lunch Break</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00-15:00</td>
+                                    <td class="tutorial">Mathematics I (R303)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Business Studies (R302)</td>
+                                    <td class="lecture">Technical Communication (R304)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                                <tr>
+                                    <td>15:00-16:00</td>
+                                    <td class="tutorial">Mathematics I (R303)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Business Studies (R302)</td>
+                                    <td class="lecture">Technical Communication (R304)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Diploma Year 2 -->
+                <div class="level-timetable" data-program="dip" data-level="2">
+                    <h4 class="mt-5">Year 2 - Semester 2</h4>
+                    <div class="table-responsive">
+                        <table class="timetable table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Time/Day</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00-09:00</td>
+                                    <td class="lecture">Programming II (R401)</td>
+                                    <td class="lab">Programming II (Lab 2)</td>
+                                    <td class="lecture">Database Systems (R405)</td>
+                                    <td class="lab">Database Systems (Lab 4)</td>
+                                    <td class="lecture">Programming II (R401)</td>
+                                </tr>
+                                <tr>
+                                    <td>09:00-10:00</td>
+                                    <td class="lecture">Programming II (R401)</td>
+                                    <td class="lab">Programming II (Lab 2)</td>
+                                    <td class="lecture">Database Systems (R405)</td>
+                                    <td class="lab">Database Systems (Lab 4)</td>
+                                    <td class="lecture">Programming II (R401)</td>
+                                </tr>
+                                <tr>
+                                    <td>10:00-11:00</td>
+                                    <td class="break" colspan="5">Tea Break</td>
+                                </tr>
+                                <tr>
+                                    <td>11:00-12:00</td>
+                                    <td class="lecture">Web Development (R402)</td>
+                                    <td class="tutorial">Systems Analysis (R404)</td>
+                                    <td class="lecture">Networking I (R403)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Programming II (Lab 2)</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00-13:00</td>
+                                    <td class="lecture">Web Development (R402)</td>
+                                    <td class="tutorial">Systems Analysis (R404)</td>
+                                    <td class="lecture">Networking I (R403)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Programming II (Lab 2)</td>
+                                </tr>
+                                <tr>
+                                    <td>13:00-14:00</td>
+                                    <td class="break" colspan="5">Lunch Break</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00-15:00</td>
+                                    <td class="tutorial">Networking I (R403)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Web Development (R402)</td>
+                                    <td class="lecture">Systems Analysis (R404)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                                <tr>
+                                    <td>15:00-16:00</td>
+                                    <td class="tutorial">Networking I (R403)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Web Development (R402)</td>
+                                    <td class="lecture">Systems Analysis (R404)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Diploma Year 3 -->
+                <div class="level-timetable" data-program="dip" data-level="3">
+                    <h4 class="mt-5">Year 3 - Semester 2</h4>
+                    <div class="table-responsive">
+                        <table class="timetable table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Time/Day</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00-09:00</td>
+                                    <td class="lecture">Advanced Programming (R501)</td>
+                                    <td class="lab">Advanced Programming (Lab 1)</td>
+                                    <td class="lecture">Database Design (R505)</td>
+                                    <td class="lab">Database Design (Lab 3)</td>
+                                    <td class="lecture">Advanced Programming (R501)</td>
+                                </tr>
+                                <tr>
+                                    <td>09:00-10:00</td>
+                                    <td class="lecture">Advanced Programming (R501)</td>
+                                    <td class="lab">Advanced Programming (Lab 1)</td>
+                                    <td class="lecture">Database Design (R505)</td>
+                                    <td class="lab">Database Design (Lab 3)</td>
+                                    <td class="lecture">Advanced Programming (R501)</td>
+                                </tr>
+                                <tr>
+                                    <td>10:00-11:00</td>
+                                    <td class="break" colspan="5">Tea Break</td>
+                                </tr>
+                                <tr>
+                                    <td>11:00-12:00</td>
+                                    <td class="lecture">Web Applications (R502)</td>
+                                    <td class="tutorial">IT Project Management (R504)</td>
+                                    <td class="lecture">Networking II (R503)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Advanced Programming (Lab 1)</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00-13:00</td>
+                                    <td class="lecture">Web Applications (R502)</td>
+                                    <td class="tutorial">IT Project Management (R504)</td>
+                                    <td class="lecture">Networking II (R503)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Advanced Programming (Lab 1)</td>
+                                </tr>
+                                <tr>
+                                    <td>13:00-14:00</td>
+                                    <td class="break" colspan="5">Lunch Break</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00-15:00</td>
+                                    <td class="tutorial">Networking II (R503)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Web Applications (R502)</td>
+                                    <td class="lecture">IT Project Management (R504)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                                <tr>
+                                    <td>15:00-16:00</td>
+                                    <td class="tutorial">Networking II (R503)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Web Applications (R502)</td>
+                                    <td class="lecture">IT Project Management (R504)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advanced Diploma -->
+            <div class="timetable-section" id="adv-timetable">
+                <h3 class="mb-4">Advanced Diploma in ICT (Applications Development)</h3>
+                
+                <!-- Advanced Diploma -->
+                <div class="level-timetable" data-program="adv" data-level="4">
+                    <h4>Year 1 - Semester 2</h4>
+                    <div class="table-responsive">
+                        <table class="timetable table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Time/Day</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00-09:00</td>
+                                    <td class="lecture">Advanced Algorithms (R601)</td>
+                                    <td class="lab">Advanced Algorithms (Lab 2)</td>
+                                    <td class="lecture">Cloud Computing (R605)</td>
+                                    <td class="lab">Cloud Computing (Lab 4)</td>
+                                    <td class="lecture">Advanced Algorithms (R601)</td>
+                                </tr>
+                                <tr>
+                                    <td>09:00-10:00</td>
+                                    <td class="lecture">Advanced Algorithms (R601)</td>
+                                    <td class="lab">Advanced Algorithms (Lab 2)</td>
+                                    <td class="lecture">Cloud Computing (R605)</td>
+                                    <td class="lab">Cloud Computing (Lab 4)</td>
+                                    <td class="lecture">Advanced Algorithms (R601)</td>
+                                </tr>
+                                <tr>
+                                    <td>10:00-11:00</td>
+                                    <td class="break" colspan="5">Tea Break</td>
+                                </tr>
+                                <tr>
+                                    <td>11:00-12:00</td>
+                                    <td class="lecture">Mobile Development (R602)</td>
+                                    <td class="tutorial">Research Methods (R604)</td>
+                                    <td class="lecture">Data Science (R603)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Advanced Algorithms (Lab 2)</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00-13:00</td>
+                                    <td class="lecture">Mobile Development (R602)</td>
+                                    <td class="tutorial">Research Methods (R604)</td>
+                                    <td class="lecture">Data Science (R603)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Advanced Algorithms (Lab 2)</td>
+                                </tr>
+                                <tr>
+                                    <td>13:00-14:00</td>
+                                    <td class="break" colspan="5">Lunch Break</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00-15:00</td>
+                                    <td class="tutorial">Data Science (R603)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Mobile Development (R602)</td>
+                                    <td class="lecture">Research Methods (R604)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                                <tr>
+                                    <td>15:00-16:00</td>
+                                    <td class="tutorial">Data Science (R603)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">Mobile Development (R602)</td>
+                                    <td class="lecture">Research Methods (R604)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Postgraduate -->
+            <div class="timetable-section" id="pg-timetable">
+                <h3 class="mb-4">Postgraduate Studies</h3>
+                
+                <!-- Honors -->
+                <div class="level-timetable" data-program="pg" data-level="honors">
+                    <h4>Honors in ICT - Semester 2</h4>
+                    <div class="table-responsive">
+                        <table class="timetable table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Time/Day</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00-09:00</td>
+                                    <td class="lecture">Advanced Research (R701)</td>
+                                    <td class="lab">Thesis Work (Lab 1)</td>
+                                    <td class="lecture">Emerging Technologies (R705)</td>
+                                    <td class="lab">Thesis Work (Lab 1)</td>
+                                    <td class="lecture">Advanced Research (R701)</td>
+                                </tr>
+                                <tr>
+                                    <td>09:00-10:00</td>
+                                    <td class="lecture">Advanced Research (R701)</td>
+                                    <td class="lab">Thesis Work (Lab 1)</td>
+                                    <td class="lecture">Emerging Technologies (R705)</td>
+                                    <td class="lab">Thesis Work (Lab 1)</td>
+                                    <td class="lecture">Advanced Research (R701)</td>
+                                </tr>
+                                <tr>
+                                    <td>10:00-11:00</td>
+                                    <td class="break" colspan="5">Tea Break</td>
+                                </tr>
+                                <tr>
+                                    <td>11:00-12:00</td>
+                                    <td class="lecture">AI Applications (R702)</td>
+                                    <td class="tutorial">Special Topics (R704)</td>
+                                    <td class="lecture">Big Data (R703)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Thesis Work (Lab 1)</td>
+                                </tr>
+                                <tr>
+                                    <td>12:00-13:00</td>
+                                    <td class="lecture">AI Applications (R702)</td>
+                                    <td class="tutorial">Special Topics (R704)</td>
+                                    <td class="lecture">Big Data (R703)</td>
+                                    <td class="empty"></td>
+                                    <td class="lab">Thesis Work (Lab 1)</td>
+                                </tr>
+                                <tr>
+                                    <td>13:00-14:00</td>
+                                    <td class="break" colspan="5">Lunch Break</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00-15:00</td>
+                                    <td class="tutorial">Big Data (R703)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">AI Applications (R702)</td>
+                                    <td class="lecture">Special Topics (R704)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                                <tr>
+                                    <td>15:00-16:00</td>
+                                    <td class="tutorial">Big Data (R703)</td>
+                                    <td class="empty"></td>
+                                    <td class="tutorial">AI Applications (R702)</td>
+                                    <td class="lecture">Special Topics (R704)</td>
+                                    <td class="empty"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Important Notes -->
+        <div class="card mt-4">
+            <div class="card-header important-notes-header text-white">
+                <h5 class="mb-0"><i class="fas fa-exclamation-circle me-2"></i> Important Notes</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Timetables are subject to change. Please check regularly for updates.</li>
+                    <li>Lab sessions require prior registration due to limited spaces.</li>
+                    <li>All classes start promptly at the scheduled time.</li>
+                    <li>Public holidays and examination periods will affect the normal schedule.</li>
+                    <li>For any timetable conflicts or issues, please contact the department office.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="https://i.postimg.cc/nV2wPJNG/Upscale-Image-9-20250709-Photoroom.png" alt="MUT Logo" class="img-fluid mb-3" style="max-width: 200px;">
+                    <p>511 Griffiths Mxenge Hwy, Umlazi, Durban, 4031</p>
+                    <p><strong>Call centre:</strong> 031 907 7111</p>
+                    <p><strong>Email:</strong> info@mut.ac.za</p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="#" class="text-white">About MUT</a></li>
+                                <li class="mb-2"><a href="#" class="text-white">Faculties</a></li>
+                                <li class="mb-2"><a href="#" class="text-white">Research</a></li>
+                                <li class="mb-2"><a href="#" class="text-white">Library</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="#" class="text-white">Apply</a></li>
+                                <li class="mb-2"><a href="#" class="text-white">Student Portal</a></li>
+                                <li class="mb-2"><a href="#" class="text-white">Timetables</a></li>
+                                <li class="mb-2"><a href="#" class="text-white">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <div class="mb-3">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-secondary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Mangosuthu University of Technology. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/timetable.js"></script>
+</body>
+</html>

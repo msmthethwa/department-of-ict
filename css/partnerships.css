@@ -1,0 +1,281 @@
+:root {
+    --mut-primary: #16657A;
+    --mut-secondary: #D39C2C;
+    --mut-light: #F5F5F5;
+    --mut-dark: #843434;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--mut-dark);
+}
+
+.navbar-mut {
+    background-color: var(--mut-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--mut-secondary);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-mut:hover {
+    background-color: #002244;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-mut .navbar-brand img {
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-mut .navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--mut-secondary) !important;
+    background-color: rgba(255, 102, 0, 0.15);
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    background-color: var(--mut-primary);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: none;
+}
+
+.dropdown-item {
+    color: white !important;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: var(--mut-secondary);
+    color: white !important;
+    text-decoration: none;
+}
+
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://www.mut.ac.za/wp-content/uploads/2023/06/slide-2-1024x576.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    background-color: var(--mut-light);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item a {
+    color: var(--mut-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover, .breadcrumb-item a:focus {
+    color: var(--mut-secondary);
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--mut-dark);
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--mut-primary);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.btn-mut {
+    background-color: var(--mut-secondary);
+    color: white;
+    border: none;
+}
+
+.btn-mut:hover {
+    background-color: #e55c00;
+    color: white;
+}
+
+.partnership-card img {
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.partnership-card:hover img {
+    filter: grayscale(0%);
+}
+
+footer {
+    background-color: var(--mut-primary);
+    color: white;
+    padding: 40px 0 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--mut-secondary);
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+}
+
+.social-icons a:hover {
+    background-color: var(--mut-secondary);
+}
+
+.quick-links li {
+    margin-bottom: 8px;
+}
+
+/* Partnerships Page Specific Styles */
+.partnership-highlight {
+    background-color: var(--mut-light);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--mut-secondary);
+}
+
+/* Fixed image size for col-md-4 mb-4 */
+.col-md-4.mb-4 img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.benefit-icon {
+    color: #16657A;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.benefit-icon i {
+    color: #16657A !important;
+}
+
+.testimonial-card {
+    border-left: 3px solid var(--mut-secondary);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    color: var(--mut-primary);
+}
+
+.partner-type-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.tech-badge {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.research-badge {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.internship-badge {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.sponsorship-badge {
+    background-color: #f3e5f5;
+    color: #8e24aa;
+}
+
+.partnership-category {
+    margin-bottom: 30px;
+}
+
+.partnership-category h3 {
+    border-bottom: 2px solid var(--mut-secondary);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 767.98px) {
+    .benefit-item {
+        flex-direction: column;
+    }
+    
+    .benefit-icon {
+        margin-bottom: 10px;
+    }
+}
+
+.bg-custom-dark {
+    background-color: var(--mut-dark);
+    color: white !important;
+}
+
+.text-primary {
+    color: #D39C2C !important;
+}
