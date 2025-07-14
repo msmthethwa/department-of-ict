@@ -283,15 +283,103 @@
     // Open edit timetable modal and populate data
     function openEditTimetableModal(id) {
         currentTimetableId = id;
-        // TODO: Fetch timetable data by id from Firestore and populate form
         if (editTimetableForm) editTimetableForm.reset();
-        if (editTimetableModal) editTimetableModal.show();
+
+        db.collection('timetables').doc(id).get().then(doc => {
+            if (!doc.exists) {
+                showToast('Timetable not found', 'danger');
+                return;
+            }
+            const data = doc.data();
+
+            // Populate form fields
+            document.getElementById('editTimetableId').value = id;
+            document.getElementById('editTimetableProgram').value = data.program || '';
+            document.getElementById('editTimetableLevel').value = data.level || '';
+            document.getElementById('editTimetableSemester').value = data.semester || '';
+            document.getElementById('editTimetableYear').value = data.academicYear || '';
+            document.getElementById('editTimetableStatus').value = data.status || 'draft';
+            document.getElementById('editTimetableNotes').value = data.notes || '';
+
+            // Populate timetable entries table
+            const tbody = document.getElementById('editTimetableEntriesBody');
+            tbody.innerHTML = '';
+            if (Array.isArray(data.entries)) {
+                data.entries.forEach(entry => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td contenteditable="true" class="time-cell">${entry.time || ''}</td>
+                        <td contenteditable="true" class="monday-cell">${entry.monday || ''}</td>
+                        <td contenteditable="true" class="tuesday-cell">${entry.tuesday || ''}</td>
+                        <td contenteditable="true" class="wednesday-cell">${entry.wednesday || ''}</td>
+                        <td contenteditable="true" class="thursday-cell">${entry.thursday || ''}</td>
+                        <td contenteditable="true" class="friday-cell">${entry.friday || ''}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-danger remove-time-slot-btn" title="Remove Time Slot">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+
+                    // Add event listener to remove button
+                    const removeBtn = row.querySelector('.remove-time-slot-btn');
+                    if (removeBtn) {
+                        removeBtn.addEventListener('click', function() {
+                            row.remove();
+                        });
+                    }
+                });
+            }
+
+            if (editTimetableModal) editTimetableModal.show();
+        }).catch(error => {
+            console.error('Error fetching timetable:', error);
+            showToast('Failed to load timetable data', 'danger');
+        });
     }
 
     // Open view timetable modal and populate data
     function openViewTimetableModal(id) {
-        // TODO: Fetch timetable data by id and populate view modal
-        if (viewTimetableModal) viewTimetableModal.show();
+        db.collection('timetables').doc(id).get().then(doc => {
+            if (!doc.exists) {
+                showToast('Timetable not found', 'danger');
+                return;
+            }
+            const data = doc.data();
+
+            // Populate display spans
+            document.getElementById('viewTimetableProgram').textContent = data.program || '';
+            document.getElementById('viewTimetableLevel').textContent = data.level || '';
+            document.getElementById('viewTimetableSemester').textContent = data.semester || '';
+            document.getElementById('viewTimetableYear').textContent = data.academicYear || '';
+            document.getElementById('viewTimetableStatus').textContent = data.status || '';
+
+            // Populate timetable entries table in view modal
+            const tbody = document.getElementById('viewTimetableEntriesBody');
+            if (tbody) {
+                tbody.innerHTML = '';
+                if (Array.isArray(data.entries)) {
+                    data.entries.forEach(entry => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${entry.time || ''}</td>
+                            <td>${entry.monday || ''}</td>
+                            <td>${entry.tuesday || ''}</td>
+                            <td>${entry.wednesday || ''}</td>
+                            <td>${entry.thursday || ''}</td>
+                            <td>${entry.friday || ''}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+            }
+
+            if (viewTimetableModal) viewTimetableModal.show();
+        }).catch(error => {
+            console.error('Error fetching timetable:', error);
+            showToast('Failed to load timetable data', 'danger');
+        });
     }
 
     // Open delete confirmation modal

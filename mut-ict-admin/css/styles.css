@@ -243,10 +243,6 @@ body {
     margin-bottom: 10px;
 }
 
-.image-upload-container p {
-    margin-bottom: 0;
-}
-
 .progress {
     height: 8px;
     margin-top: 10px;
@@ -301,4 +297,71 @@ body {
 #toggleRegister:hover {
     text-decoration: underline;
     color: var(--mut-secondary);
+}
+
+/* Custom styles for timetable modals */
+#addTimetableModal .modal-header,
+#editTimetableModal .modal-header {
+    background-color: #843434 !important;
+    color: white !important;
+}
+
+#saveTimetableBtn,
+#updateTimetableBtn {
+    background-color: #843434 !important;
+    color: white !important;
+    border: none !important;
+}
+
+#viewTimetableModal .modal-header {
+    background-color: #843434 !important;
+    color: white !important;
+}
+
+/* Custom styles for All Timetables action buttons */
+.edit-timetable-btn,
+.view-timetable-btn {
+    background-color: #D39C2C !important;
+    border-color: #D39C2C !important;
+    color: white !important;
+}
+
+.delete-timetable-btn {
+    background-color: #843434 !important;
+    border-color: #843434 !important;
+    color: white !important;
+}
+
+/* Custom styles for Staff and Department modals */
+#staffModal .modal-header,
+#departmentModal .modal-header {
+    background-color: #843434 !important;
+    color: white !important;
+}
+
+/* Custom styles for Staff and Department edit buttons */
+.edit-staff-btn,
+.edit-department-btn {
+    background-color: #D39C2C !important;
+    border-color: #D39C2C !important;
+    color: white !important;
+}
+
+/* Override DataTables pagination buttons color */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #D39C2C !important;
+    border: 1px solid #D39C2C !important;
+    background: none !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: white !important;
+    background-color: #D39C2C !important;
+    border: 1px solid #D39C2C !important;
+}
+
+/* Override DataTables pagination number buttons color */
+.dataTables_wrapper .dataTables_paginate .paginate_button:not(.previous):not(.next) {
+    color: #D39C2C !important;
 }
