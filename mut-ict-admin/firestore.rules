@@ -17,21 +17,31 @@ service cloud.firestore {
     // Rules for staff collection
     match /staff/{staffId} {
       allow read: if true;
-      allow create: if request.auth != null && isAdmin();
-      allow update, delete: if request.auth != null && isAdmin();
+      allow create, update, delete: if true;
     }
     
     // Rules for departments collection
     match /departments/{departmentId} {
       allow read: if true;
-      allow create: if request.auth != null && isAdmin();
-      allow update, delete: if request.auth != null && isAdmin();
+      allow create, update, delete: if true;
     }
 
     // Rules for timetables collection
     match /timetables/{timetableId} {
+      allow read, create, update, delete: if true;
+    }
+
+    // Rules for events collection
+    match /events/{eventId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
+    }
+
+    // Rules for registrations collection
+    match /registrations/{registrationId} {
       allow read: if request.auth != null;
-      allow create, update, delete: if request.auth != null && isAdmin();
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null;
     }
   }
 }
